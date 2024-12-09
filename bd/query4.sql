@@ -98,7 +98,7 @@ INNER JOIN users
 ON users.idUser = users_has_movies.fk_users
 GROUP BY fk_users;
 
--- Usuario con mayor cantidad de películas favoritas
+-- Usuario con mayor cantidad de películas favoritas (AUN POR TERMINAR)
 SELECT users.name, COUNT(fk_movies) AS peliculas_favoritas, users.name AS usuario
 FROM users_has_movies
 INNER JOIN users
