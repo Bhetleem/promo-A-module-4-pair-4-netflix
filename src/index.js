@@ -43,10 +43,10 @@ server.listen(serverPort, () => {
 async function getDBConnection() {
   const connection = await mysql.createConnection({
     //config la conexión de mi db
-    host: "localhost",
-    user: "root",
-    password: "pair",
-    database: "netflix"
+    host: "szzk7.h.filess.io",
+    user: "Netflix_waveengine",
+    password: "16342dee0fdc2169f9cb5903185c872cc58df8a8",
+    database: "Netflix_waveengine"
   })
   connection.connect();
   return connection;
@@ -58,8 +58,8 @@ server.get("/movies", async (request, response) => {
   const sqlQuery = "SELECT * FROM movies";
   const [results] = await connection.query(sqlQuery);
   console.log(results);
-  // response.status(200).json({
-  //   success: true,
-  //   movies: 
-  // })
+  response.status(200).json({
+    success: true,
+    movies: results
+  })
 })
