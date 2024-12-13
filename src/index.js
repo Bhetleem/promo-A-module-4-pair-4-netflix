@@ -46,7 +46,8 @@ async function getDBConnection() {
     host: "szzk7.h.filess.io",
     user: "Netflix_waveengine",
     password: "16342dee0fdc2169f9cb5903185c872cc58df8a8",
-    database: "Netflix_waveengine"
+    database: "Netflix_waveengine",
+    port: 3306
   })
   connection.connect();
   return connection;
