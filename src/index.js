@@ -41,14 +41,24 @@ server.get("/movie/:movieId", async (request, response) => {
 })
 
 
-// server.get("/movies", async (request, response) => {
-//   const connection = await getDBConnection();
-//   const sqlQuery = "SELECT * FROM movies";
-//   const [results] = await connection.query(sqlQuery);
-//   console.log(results);
-//   response.status(200).json({
-//     success: true,
-//     movies: results
-//   })
-// })
+server.get("/movies", async (request, response) => {
+  const connection = await getDBConnection();
+  const sqlQuery = "SELECT * FROM movies";
+  const [results] = await connection.query(sqlQuery);
+  console.log(results);
+  response.status(200).json({
+    success: true,
+    movies: results
+  })
+})
+//insertar el nuevo usuario en mi tabla DB
+server.post("/sign-up", async (req, res) => {
+  const connection = await getDBConnection();
+  const query = "INSERT INTO users (email, password) VALUES (?, ?)";
+  const [results] = await connection.query(query, [
+    email, password
+  ])
+  console.log(results);
 
+  res.json({});
+})
