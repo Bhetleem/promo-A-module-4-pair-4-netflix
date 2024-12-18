@@ -53,6 +53,7 @@ server.get("/movies", async (request, response) => {
 })
 //insertar el nuevo usuario en mi tabla DB
 server.post("/sign-up", async (req, res) => {
+  const { email, password } = req.body;
   const connection = await getDBConnection();
   const query = "INSERT INTO users (email, password) VALUES (?, ?)";
   const [results] = await connection.query(query, [
@@ -60,5 +61,8 @@ server.post("/sign-up", async (req, res) => {
   ])
   console.log(results);
 
-  res.json({});
+  res.status(201).json({
+    status: "success",
+    id: result.insertId
+});
 })
